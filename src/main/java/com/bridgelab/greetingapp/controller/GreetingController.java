@@ -46,6 +46,11 @@ public class GreetingController {
         return new ResponseEntity<String>(greetingService.getMessage(), HttpStatus.OK);
     }
 
+    @GetMapping("/getfirstandlast")
+    public ResponseEntity<String>getGreetingMessage(@RequestParam(value = "firstName",defaultValue = "World") String firstName ,@RequestParam(value = "lastName",defaultValue = " World") String lastName){
+        return new ResponseEntity<String>(greetingService.getGreetingMessage(firstName,lastName),HttpStatus.OK);
+    }
+
 
 
 }
