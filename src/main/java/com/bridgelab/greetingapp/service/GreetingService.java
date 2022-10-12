@@ -24,14 +24,14 @@ public class GreetingService {
     }
 
 
-    public String postMessage(User user) {
-        return "Hello " + user.getFirstName() + " " + user.getLastName();
-
-    }
-
     public Greeting saveMessage(Greeting greeting) {
         Greeting greeting1 = new Greeting(String.format(template,greeting.getContent()));
         repository.save(greeting1);
         return greeting1;
+    }
+
+    public String getData(Integer id) {
+        Greeting newGreeting = repository.getById(id);
+        return newGreeting.getContent();
     }
 }
